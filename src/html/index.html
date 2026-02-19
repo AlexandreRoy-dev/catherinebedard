@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HomeHeart — Homepage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700,800,900&amp;subset=latin">
+    <link href="https://fonts.cdnfonts.com/css/general-sans?styles=135312,135310,135313,135303" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+</head>
+<body class="antialiased bg-body text-body font-body">
+    <div class="">
+                
+      <section x-data="{ mobileNavOpen: false }" class="bg-gray-50">
+        <div class="container mx-auto overflow-hidden">
+          <div class="flex items-center justify-between px-4 py-5 bg-gray-50">
+            <div class="w-auto">
+              <div class="flex flex-wrap items-center">
+                <div class="w-auto mr-14">
+                  <a href="#">
+                    <img class="h-8" src="images/logos/logo-cf3098287760ab474caf6f8df2fbb674.png" alt="HomeHeart Logo">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="w-auto">
+              <div class="flex flex-wrap items-center">
+                <div class="w-auto hidden lg:block">
+                  <ul class="flex items-center mr-16">
+                    <li class="mr-9 font-medium hover:text-indigo-600">
+                      <a href="#about">About</a>
+                    </li>
+                    <li class="mr-9 font-medium hover:text-indigo-600">
+                      <a href="#services">Services</a>
+                    </li>
+                    <li class="mr-9 font-medium hover:text-indigo-600">
+                      <a href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="font-medium hover:text-indigo-600">
+                      <a href="#contact">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="w-auto hidden lg:block">
+                  <div class="inline-block">
+                    <button class="py-3 px-5 w-full text-white font-semibold border border-indigo-700 rounded-2xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Schedule Consultation</button>
+                  </div>
+                </div>
+                <div class="w-auto lg:hidden">
+                  <button x-on:click="mobileNavOpen = !mobileNavOpen">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="text-indigo-600" width="51" height="51" viewbox="0 0 56 56" fill="none">
+                      <rect width="56" height="56" rx="28" fill="currentColor"></rect>
+                      <path d="M37 32H19M37 24H19" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div :class="{'block': mobileNavOpen, 'hidden': !mobileNavOpen}" class="hidden fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50">
+            <div x-on:click="mobileNavOpen = !mobileNavOpen" class="fixed inset-0 bg-gray-800 opacity-80"></div>
+            <nav class="relative z-10 px-9 pt-8 bg-white h-full overflow-y-auto rounded-r-3xl">
+              <div class="flex flex-wrap justify-between h-full">
+                <div class="w-full">
+                  <div class="flex items-center justify-between -m-2">
+                    <div class="w-auto p-2">
+                      <a class="inline-block" href="#">
+                        <img class="h-8" src="images/logos/logo-cf3098287760ab474caf6f8df2fbb674.png" alt="HomeHeart Logo">
+                      </a>
+                    </div>
+                    <div class="w-auto p-2">
+                      <button x-on:click="mobileNavOpen = !mobileNavOpen">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                          <path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col justify-center py-16 w-full">
+                  <ul>
+                    <li class="mb-12">
+                      <a class="font-medium hover:text-indigo-600" href="#about">About</a>
+                    </li>
+                    <li class="mb-12">
+                      <a class="font-medium hover:text-indigo-600" href="#services">Services</a>
+                    </li>
+                    <li class="mb-12">
+                      <a class="font-medium hover:text-indigo-600" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li>
+                      <a class="font-medium hover:text-indigo-600" href="#contact">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="flex flex-col justify-end w-full pb-8">
+                  <div class="flex flex-wrap">
+                    <div class="w-full">
+                      <div class="block">
+                        <button class="py-3 px-5 w-full text-white font-semibold border border-indigo-700 rounded-2xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Schedule Consultation</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="overflow-hidden pt-16 pb-24">
+          <div class="container px-4 mx-auto">
+            <div class="flex flex-wrap -m-8 items-center">
+              <div class="w-full md:w-1/2 p-8">
+                <div class="inline-block mb-6 px-4 py-2 font-semibold bg-indigo-100 rounded-full text-indigo-700">
+                  <span>🏡 Your Home Journey Starts Here</span>
+                </div>
+                <h1 class="mb-6 text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-tight">
+                  <span>Finding Homes with </span>
+                  <span class="text-indigo-600">Heart &amp; Purpose</span>
+                </h1>
+                <p class="mb-11 text-lg text-gray-600 font-medium md:max-w-md leading-relaxed">From social work to real estate — bringing the same compassion, dedication, and community-focused approach to help you find your perfect home.</p>
+                <div class="flex flex-wrap -m-2.5">
+                  <div class="w-full md:w-auto p-2.5">
+                    <div class="block">
+                      <button class="py-4 px-8 w-full text-white font-semibold border border-indigo-700 rounded-2xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Find Your Home</button>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-auto p-2.5">
+                    <div class="block">
+                      <button class="py-4 px-8 w-full font-semibold border border-gray-300 hover:border-gray-400 rounded-2xl focus:ring focus:ring-gray-50 bg-transparent hover:bg-gray-100 transition ease-in-out duration-200" type="button">
+                        <div class="flex flex-wrap justify-center items-center -m-1">
+                          <div class="w-auto p-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none">
+                              <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                          </div>
+                          <div class="w-auto p-1">
+                            <span>Call Now</span>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 p-8">
+                <img class="w-full rounded-3xl shadow-2xl transform hover:-translate-y-4 transition ease-in-out duration-500" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800" alt="Beautiful modern home exterior">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="container px-4 mx-auto">
+          <div class="flex flex-wrap -m-8 items-center">
+            <div class="w-full md:w-1/2 p-8">
+              <img class="w-full rounded-3xl shadow-xl" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600" alt="Professional real estate agent">
+            </div>
+            <div class="w-full md:w-1/2 p-8">
+              <div class="inline-block mb-4 px-4 py-2 font-semibold bg-green-100 text-green-700 rounded-full text-sm">
+                <span>About Me</span>
+              </div>
+              <h2 class="mb-6 text-4xl md:text-5xl font-bold font-heading tracking-tight leading-tight">
+                <span>From Serving Communities to </span>
+                <span class="text-indigo-600">Finding Your Home</span>
+              </h2>
+              <p class="mb-6 text-lg text-gray-600 leading-relaxed">After 10 years in social work, I discovered that helping families find their perfect home brings the same fulfillment as community service. My background taught me to listen deeply, understand unique needs, and advocate passionately for every client.</p>
+              <p class="mb-8 text-lg text-gray-600 leading-relaxed">I believe everyone deserves a place to call home — a sanctuary where memories are made and futures are built. Let me bring that same dedication and heart to your home-buying journey.</p>
+              <div class="flex flex-wrap -m-4">
+                <div class="w-auto p-4">
+                  <div class="text-center">
+                    <p class="text-4xl font-bold text-indigo-600 mb-2">150+</p>
+                    <p class="text-gray-600 font-medium">Families Helped</p>
+                  </div>
+                </div>
+                <div class="w-auto p-4">
+                  <div class="text-center">
+                    <p class="text-4xl font-bold text-indigo-600 mb-2">10+</p>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
+                  </div>
+                </div>
+                <div class="w-auto p-4">
+                  <div class="text-center">
+                    <p class="text-4xl font-bold text-indigo-600 mb-2">98%</p>
+                    <p class="text-gray-600 font-medium">Client Satisfaction</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <section id="services" class="py-24 bg-gray-50 overflow-hidden">
+        <div class="container px-4 mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-block mb-4 px-4 py-2 font-semibold bg-indigo-100 text-indigo-700 rounded-full text-sm">
+              <span>Services</span>
+            </div>
+            <h2 class="mb-6 text-4xl md:text-5xl font-bold font-heading tracking-tight leading-tight">
+              <span>How I Can </span>
+              <span class="text-indigo-600">Help You</span>
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">Comprehensive real estate services tailored to your unique needs, delivered with care and expertise.</p>
+          </div>
+          <div class="flex flex-wrap -m-4">
+            <div class="w-full md:w-1/3 p-4">
+              <div class="h-full bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition ease-in-out duration-300">
+                <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none">
+                    <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <h3 class="mb-4 text-xl font-bold font-heading">Home Buying</h3>
+                <p class="text-gray-600 leading-relaxed">Personalized guidance through every step of purchasing your dream home, from search to closing day.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/3 p-4">
+              <div class="h-full bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition ease-in-out duration-300">
+                <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none">
+                    <path d="M12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8ZM12 8V3M12 14V21M3 11H21" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <h3 class="mb-4 text-xl font-bold font-heading">Home Selling</h3>
+                <p class="text-gray-600 leading-relaxed">Strategic marketing and pricing to sell your property quickly and at the best possible value.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/3 p-4">
+              <div class="h-full bg-white rounded-3xl shadow-lg p-8 hover:shadow-xl transition ease-in-out duration-300">
+                <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none">
+                    <path d="M17 20H22V18C22 16.3431 20.6569 15 19 15C18.0444 15 17.1931 15.4468 16.6438 16.1429M17 20H7M17 20V18C17 17.3438 16.8736 16.717 16.6438 16.1429M7 20H2V18C2 16.3431 3.34315 15 5 15C5.95561 15 6.80686 15.4468 7.35625 16.1429M7 20V18C7 17.3438 7.12642 16.717 7.35625 16.1429M7.35625 16.1429C8.0935 14.301 9.89482 13 12 13C14.1052 13 15.9065 14.301 16.6438 16.1429M15 7C15 8.65685 13.6569 10 12 10C10.3431 10 9 8.65685 9 7C9 5.34315 10.3431 4 12 4C13.6569 4 15 5.34315 15 7ZM21 10C21 11.1046 20.1046 12 19 12C17.8954 12 17 11.1046 17 10C17 8.89543 17.8954 8 19 8C20.1046 8 21 8.89543 21 10ZM7 10C7 11.1046 6.10457 12 5 12C3.89543 12 3 11.1046 3 10C3 8.89543 3.89543 8 5 8C6.10457 8 7 8.89543 7 10Z" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <h3 class="mb-4 text-xl font-bold font-heading">First-Time Buyers</h3>
+                <p class="text-gray-600 leading-relaxed">Special support for first-time homebuyers, making the process simple and stress-free.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <section id="testimonials" class="py-24 bg-white overflow-hidden">
+        <div class="container px-4 mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-block mb-4 px-4 py-2 font-semibold bg-amber-100 text-amber-700 rounded-full text-sm">
+              <span>Testimonials</span>
+            </div>
+            <h2 class="mb-6 text-4xl md:text-5xl font-bold font-heading tracking-tight leading-tight">
+              <span>What My </span>
+              <span class="text-indigo-600">Clients Say</span>
+            </h2>
+          </div>
+          <div class="flex flex-wrap -m-4">
+            <div class="w-full md:w-1/3 p-4">
+              <div class="h-full bg-gray-50 rounded-3xl p-8">
+                <div class="flex mb-4">
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </div>
+                <p class="mb-6 text-gray-600 leading-relaxed">"She truly listened to what we needed and found us the perfect family home. Her social work background really shows — she understood our situation and never pressured us."</p>
+                <div class="flex items-center">
+                  <img class="w-12 h-12 rounded-full mr-4" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sarah M.">
+                  <div>
+                    <p class="font-bold">Sarah M.</p>
+                    <p class="text-sm text-gray-500">First-time Homebuyer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/3 p-4">
+              <div class="h-full bg-gray-50 rounded-3xl p-8">
+                <div class="flex mb-4">
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </div>
+                <p class="mb-6 text-gray-600 leading-relaxed">"Sold our house in just 3 weeks! Her marketing strategy and genuine approach made all the difference. Highly recommend to anyone looking for a caring agent."</p>
+                <div class="flex items-center">
+                  <img class="w-12 h-12 rounded-full mr-4" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Michael R.">
+                  <div>
+                    <p class="font-bold">Michael R.</p>
+                    <p class="text-sm text-gray-500">Home Seller</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/3 p-4">
+              <div class="h-full bg-gray-50 rounded-3xl p-8">
+                <div class="flex mb-4">
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </div>
+                <p class="mb-6 text-gray-600 leading-relaxed">"As a single mom, I was nervous about the process. She made everything so easy and found us a wonderful home in a great school district. Forever grateful!"</p>
+                <div class="flex items-center">
+                  <img class="w-12 h-12 rounded-full mr-4" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Jennifer L.">
+                  <div>
+                    <p class="font-bold">Jennifer L.</p>
+                    <p class="text-sm text-gray-500">Happy Homeowner</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <section id="contact" class="py-24 bg-indigo-600 overflow-hidden">
+        <div class="container px-4 mx-auto">
+          <div class="flex flex-wrap -m-8 items-center">
+            <div class="w-full lg:w-1/2 p-8">
+              <div class="inline-block mb-4 px-4 py-2 font-semibold bg-indigo-500 text-white rounded-full text-sm">
+                <span>Get In Touch</span>
+              </div>
+              <h2 class="mb-6 text-4xl md:text-5xl font-bold font-heading tracking-tight leading-tight text-white">
+                <span>Ready to Find Your </span>
+                <span class="text-indigo-200">Dream Home?</span>
+              </h2>
+              <p class="mb-8 text-lg text-indigo-100 leading-relaxed max-w-lg">Let's start a conversation about your real estate goals. I'm here to listen, guide, and help you every step of the way.</p>
+              <div class="flex flex-wrap -m-2 mb-6">
+                <div class="w-auto p-2">
+                  <div class="flex items-center bg-indigo-500 rounded-2xl px-4 py-3">
+                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <span class="text-white font-medium">(555) 123-4567</span>
+                  </div>
+                </div>
+                <div class="w-auto p-2">
+                  <div class="flex items-center bg-indigo-500 rounded-2xl px-4 py-3">
+                    <svg class="w-6 h-6 text-white mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span class="text-white font-medium">hello@homeheart.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full lg:w-1/2 p-8">
+              <div class="bg-white rounded-3xl p-8 shadow-xl">
+                <form action="#" method="post">
+                  <div class="mb-4">
+                    <label class="block mb-2 text-gray-900 font-semibold leading-normal">Full Name</label>
+                    <input class="px-4 py-3.5 w-full text-gray-700 font-medium placeholder-gray-400 bg-gray-50 outline-none border border-gray-200 rounded-2xl focus:ring focus:ring-indigo-300" type="text" placeholder="Your name">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block mb-2 text-gray-900 font-semibold leading-normal">Email Address</label>
+                    <input class="px-4 py-3.5 w-full text-gray-700 font-medium placeholder-gray-400 bg-gray-50 outline-none border border-gray-200 rounded-2xl focus:ring focus:ring-indigo-300" type="email" placeholder="your@email.com">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block mb-2 text-gray-900 font-semibold leading-normal">Phone Number</label>
+                    <input class="px-4 py-3.5 w-full text-gray-700 font-medium placeholder-gray-400 bg-gray-50 outline-none border border-gray-200 rounded-2xl focus:ring focus:ring-indigo-300" type="tel" placeholder="(555) 000-0000">
+                  </div>
+                  <div class="mb-6">
+                    <label class="block mb-2 text-gray-900 font-semibold leading-normal">Message</label>
+                    <textarea class="p-4 w-full h-32 font-medium text-gray-700 placeholder-gray-400 bg-gray-50 outline-none border border-gray-200 resize-none rounded-2xl focus:ring focus:ring-indigo-300" placeholder="Tell me about your home search..."></textarea>
+                  </div>
+                  <div class="block">
+                    <button class="py-4 px-6 w-full text-white font-semibold border border-indigo-700 rounded-2xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="submit">Send Message</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <section class="pt-24 bg-white overflow-hidden">
+        <div class="container px-4 mx-auto">
+          <div class="pb-20 border-b">
+            <div class="flex flex-wrap -m-8">
+              <div class="w-full sm:w-1/2 lg:w-2/12 p-8">
+                <h3 class="mb-6 font-semibold leading-normal">Services</h3>
+                <ul>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Home Buying</a>
+                  </li>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Home Selling</a>
+                  </li>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">First-Time Buyers</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Consultations</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-2/12 p-8">
+                <h3 class="mb-6 font-semibold leading-normal">Company</h3>
+                <ul>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">About</a>
+                  </li>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Testimonials</a>
+                  </li>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Blog</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-2/12 p-8">
+                <h3 class="mb-6 font-semibold leading-normal">Legal</h3>
+                <ul>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Terms</a>
+                  </li>
+                  <li class="mb-3.5">
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Privacy</a>
+                  </li>
+                  <li>
+                    <a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="#">Licensing</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-6/12 p-8">
+                <div class="lg:max-w-sm lg:ml-auto">
+                  <h3 class="mb-6 font-semibold leading-normal">Stay Updated</h3>
+                  <p class="mb-5 font-sans text-gray-600 leading-relaxed">Get the latest listings and real estate tips delivered to your inbox.</p>
+                  <div class="mb-3 inline-block md:max-w-xl w-full overflow-hidden border border-gray-300 rounded-2xl focus-within:ring focus-within:ring-indigo-300">
+                    <div class="flex flex-wrap items-center">
+                      <div class="w-full xl:flex-1">
+                        <input class="p-3 xl:p-0 xl:pl-6 xl:pr-6 w-full font-medium text-gray-500 placeholder-gray-500 outline-none" type="email" placeholder="Type your e-mail">
+                      </div>
+                      <div class="w-full xl:w-auto">
+                        <div class="block">
+                          <button class="py-4 px-8 w-full text-white font-semibold border border-indigo-700 rounded-2xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200" type="button">Subscribe</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-between items-center py-6 -m-4">
+            <div class="w-auto p-4">
+              <a href="#">
+                <img class="h-8" src="images/logos/logo-cf3098287760ab474caf6f8df2fbb674.png" alt="HomeHeart Logo">
+              </a>
+            </div>
+            <div class="w-auto p-4">
+              <p class="text-sm text-gray-600 font-medium">Copyright © 2026 HomeHeart. All Rights Reserved</p>
+            </div>
+            <div class="w-auto p-4">
+              <div class="flex flex-wrap -m-4">
+                <div class="w-auto p-4">
+                  <a class="text-gray-400 hover:text-indigo-600" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewbox="0 0 9 16" fill="none">
+                      <path d="M5.68503 5.32446L5.68503 3.82446C5.68503 3.17446 5.84293 2.82446 6.94819 2.82446H8.31661V0.324463L6.21135 0.324463C3.57977 0.324463 2.52714 1.97446 2.52714 3.82446V5.32446H0.421875L0.421875 7.82446H2.52714L2.52714 15.3245H5.68503L5.68503 7.82446H8.00082L8.31661 5.32446H5.68503Z" fill="currentColor"></path>
+                    </svg>
+                  </a>
+                </div>
+                <div class="w-auto p-4">
+                  <a class="text-gray-400 hover:text-indigo-600" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
+                      <path d="M7.81641 0.324463C5.78109 0.324463 5.52516 0.333838 4.72547 0.369463C3.92578 0.406963 3.38109 0.532588 2.90391 0.718213C2.40337 0.906481 1.94999 1.2018 1.57547 1.58353C1.19398 1.95824 0.898694 2.41156 0.710156 2.91196C0.524531 3.38821 0.397969 3.93384 0.361406 4.73071C0.325781 5.53228 0.316406 5.78728 0.316406 7.8254C0.316406 9.86165 0.325781 10.1167 0.361406 10.9163C0.398906 11.7151 0.524531 12.2598 0.710156 12.737C0.902344 13.2301 1.15828 13.6482 1.57547 14.0654C1.99172 14.4826 2.40984 14.7395 2.90297 14.9307C3.38109 15.1163 3.92484 15.2429 4.72359 15.2795C5.52422 15.3151 5.77922 15.3245 7.81641 15.3245C9.85359 15.3245 10.1077 15.3151 10.9083 15.2795C11.7061 15.242 12.2527 15.1163 12.7298 14.9307C13.2301 14.7424 13.6831 14.447 14.0573 14.0654C14.4745 13.6482 14.7305 13.2301 14.9227 12.737C15.1073 12.2598 15.2339 11.7151 15.2714 10.9163C15.307 10.1167 15.3164 9.86165 15.3164 7.82446C15.3164 5.78728 15.307 5.53228 15.2714 4.73165C15.2339 3.93384 15.1073 3.38821 14.9227 2.91196C14.7341 2.41155 14.4389 1.95822 14.0573 1.58353C13.6829 1.20166 13.2295 0.906318 12.7289 0.718213C12.2508 0.532588 11.7052 0.406025 10.9073 0.369463C10.1067 0.333838 9.85266 0.324463 7.81453 0.324463H7.81734H7.81641ZM7.14422 1.67634H7.81734C9.81984 1.67634 10.057 1.6829 10.8473 1.71946C11.5786 1.75228 11.9761 1.87509 12.2405 1.97728C12.5902 2.11321 12.8405 2.27634 13.103 2.53884C13.3655 2.80134 13.5277 3.05071 13.6636 3.40134C13.7667 3.66478 13.8886 4.06228 13.9214 4.79353C13.958 5.58384 13.9655 5.82103 13.9655 7.82259C13.9655 9.82415 13.958 10.0623 13.9214 10.8526C13.8886 11.5838 13.7658 11.9804 13.6636 12.2448C13.5434 12.5704 13.3514 12.8649 13.102 13.1063C12.8395 13.3688 12.5902 13.531 12.2395 13.667C11.977 13.7701 11.5795 13.892 10.8473 13.9257C10.057 13.9613 9.81984 13.9698 7.81734 13.9698C5.81484 13.9698 5.57672 13.9613 4.78641 13.9257C4.05516 13.892 3.65859 13.7701 3.39422 13.667C3.06844 13.5469 2.77371 13.3553 2.53172 13.1063C2.28211 12.8645 2.0899 12.5698 1.96922 12.2438C1.86703 11.9804 1.74422 11.5829 1.71141 10.8517C1.67578 10.0613 1.66828 9.82415 1.66828 7.82071C1.66828 5.81821 1.67578 5.58196 1.71141 4.79165C1.74516 4.0604 1.86703 3.6629 1.97016 3.39853C2.10609 3.04884 2.26922 2.79853 2.53172 2.53603C2.79422 2.27353 3.04359 2.11134 3.39422 1.9754C3.65859 1.87228 4.05516 1.7504 4.78641 1.71665C5.47828 1.68478 5.74641 1.6754 7.14422 1.67446V1.67634ZM11.8205 2.92134C11.7023 2.92134 11.5852 2.94462 11.4761 2.98985C11.3669 3.03508 11.2676 3.10137 11.1841 3.18494C11.1005 3.26851 11.0342 3.36773 10.989 3.47692C10.9437 3.58612 10.9205 3.70315 10.9205 3.82134C10.9205 3.93953 10.9437 4.05656 10.989 4.16575C11.0342 4.27495 11.1005 4.37416 11.1841 4.45773C11.2676 4.54131 11.3669 4.6076 11.4761 4.65283C11.5852 4.69806 11.7023 4.72134 11.8205 4.72134C12.0592 4.72134 12.2881 4.62652 12.4569 4.45773C12.6256 4.28895 12.7205 4.06003 12.7205 3.82134C12.7205 3.58264 12.6256 3.35372 12.4569 3.18494C12.2881 3.01616 12.0592 2.92134 11.8205 2.92134ZM7.81734 3.97321C7.30647 3.96524 6.79912 4.05898 6.32482 4.24897C5.85053 4.43896 5.41876 4.7214 5.05467 5.07986C4.69058 5.43832 4.40143 5.86562 4.20407 6.33689C4.0067 6.80817 3.90506 7.314 3.90506 7.82493C3.90506 8.33587 4.0067 8.84169 4.20407 9.31297C4.40143 9.78424 4.69058 10.2115 5.05467 10.57C5.41876 10.9285 5.85053 11.2109 6.32482 11.4009C6.79912 11.5909 7.30647 11.6846 7.81734 11.6767C8.82848 11.6609 9.79286 11.2481 10.5023 10.5275C11.2118 9.80689 11.6094 8.83619 11.6094 7.82493C11.6094 6.81368 11.2118 5.84297 10.5023 5.12235C9.79286 4.40173 8.82848 3.98899 7.81734 3.97321ZM7.81734 5.32415C8.48047 5.32415 9.11643 5.58758 9.58533 6.05648C10.0542 6.52537 10.3177 7.16134 10.3177 7.82446C10.3177 8.48759 10.0542 9.12355 9.58533 9.59245C9.11643 10.0613 8.48047 10.3248 7.81734 10.3248C7.15422 10.3248 6.51826 10.0613 6.04936 9.59245C5.58046 9.12355 5.31703 8.48759 5.31703 7.82446C5.31703 7.16134 5.58046 6.52537 6.04936 6.05648C6.51826 5.58758 7.15422 5.32415 7.81734 5.32415Z" fill="currentColor"></path>
+                    </svg>
+                  </a>
+                </div>
+                <div class="w-auto p-4">
+                  <a class="text-gray-400 hover:text-indigo-600" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewbox="0 0 16 15" fill="none">
+                      <path d="M3.67326 14.8544H0.564368L0.564368 5.46737H3.67326L3.67326 14.8544ZM2.11694 4.18691C1.12295 4.18691 0.316406 3.41461 0.316406 2.48264C0.316406 2.0349 0.506105 1.6055 0.84377 1.2889C1.18144 0.972297 1.63941 0.794434 2.11694 0.794434C2.59447 0.794434 3.05244 0.972297 3.39011 1.2889C3.72778 1.6055 3.91747 2.0349 3.91747 2.48264C3.91747 3.41461 3.11093 4.18691 2.11694 4.18691ZM15.3087 14.8544H12.2068V10.2849C12.2068 9.19579 12.1832 7.79933 10.5905 7.79933C8.97418 7.79933 8.72622 8.98237 8.72622 10.2066V14.8544L5.62054 14.8544L5.62054 5.46737H8.60197V6.74784H8.64535C9.0604 6.01019 10.0742 5.23187 11.5866 5.23187C14.733 5.23187 15.3114 7.17466 15.3114 9.69793V14.8544H15.3087Z" fill="currentColor"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="text/javascript" src="js/global-18048.js?v=1771516003"></script>
+</body>
+</html>
+
