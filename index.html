@@ -55,7 +55,7 @@
 <section x-data="{ mobileNavOpen: false }" class="relative w-full min-h-screen flex items-center pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden">
         
         <div class="absolute inset-0 z-0">
-          <img class="w-full h-full object-cover transform scale-105" src="public/banner.jpeg" alt="Superbe propriété moderne">
+          <img class="w-full h-full object-cover object-[80%_center] lg:object-center transform scale-105" src="public/banner.jpeg" alt="Superbe propriété moderne">
           <div class="absolute inset-0 bg-gradient-to-r from-gray-900/70 via-gray-900/40 to-transparent"></div>
           <div class="absolute inset-0 bg-brand/5"></div> 
         </div>
@@ -136,7 +136,7 @@
             </h1>
             
             <p class="text-xl sm:text-2xl text-white mb-10 max-w-2xl leading-relaxed font-light drop-shadow-md">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit nulla, imperdiet quis est et, rutrum convallis velit. 
+              Votre projet mérite une attention particulière. Profitez d'un service de courtage transparent et humain pour une transaction en toute sérénité.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-5">
@@ -166,82 +166,107 @@
         </div>
       </section>
                 
-<section id="about" class="py-24 bg-white overflow-hidden relative">
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-b from-gray-50 to-white -z-10"></div>
+<section id="about" class="relative py-20 lg:py-32 overflow-hidden">
+  
+  <div class="absolute inset-0 z-0">
+    <img src="./public/apropos.jpeg" alt="Background" class="w-full h-full object-cover object-center opacity-100">
+    
+    <div class="absolute inset-0 bg-white/60 backdrop-blur-[2px]"></div>
+    
+    <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20"></div>
+  </div>
 
-        <div class="container px-4 mx-auto">
-          <div class="flex flex-wrap -m-8 items-center">
-            
-            <div class="w-full lg:w-1/2 p-8 relative">
-              <div class="absolute inset-8 bg-gradient-to-br from-brand/20 to-pink-100 rounded-3xl transform rotate-3 scale-105 -z-10 transition-transform duration-700 hover:rotate-6"></div>
-              
-              <img class="w-full rounded-3xl shadow-2xl relative z-10" src="public/catherine.png" alt="Catherine Bédard - Courtier immobilier">
-              
-              <div class="absolute bottom-16 -right-4 md:-right-8 bg-white/80 backdrop-blur-lg border border-white/50 p-5 rounded-2xl shadow-xl z-20 hidden sm:flex items-center gap-4 transform hover:-translate-y-2 transition-transform duration-500">
-                <div class="w-14 h-14 rounded-full bg-brand/10 flex items-center justify-center text-brand">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="font-bold text-gray-900 text-lg">Approche humaine</p>
-                  <p class="text-sm text-gray-500 font-medium">100% personnalisée</p>
-                </div>
-              </div>
-            </div>
+  <div class="absolute -left-40 top-40 w-96 h-96 bg-brand/10 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob z-0"></div>
 
-            <div class="w-full lg:w-1/2 p-8">
-             <p class="text-brand text-sm font-semibold tracking-wide uppercase mb-8">Catherine Bédard</p>
-              
-              <h2 class="mb-6 text-4xl md:text-5xl font-bold font-heading tracking-tight leading-tight">
-                L'humain au cœur de <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-pink-500">votre projet immobilier</span>
-              </h2>
-              
-              <p class="mb-6 text-lg text-gray-600 leading-relaxed font-light">
-                Riche d'un parcours axé sur la relation d'aide et l'accompagnement humain, j'ai découvert qu'aider les familles à trouver leur maison idéale m'apporte un profond sentiment d'accomplissement. Mon approche est basée sur l'écoute active : je prends le temps de comprendre vos besoins uniques pour défendre avec passion et intégrité vos intérêts.
-              </p>
-              
-              <p class="mb-10 text-lg text-gray-600 leading-relaxed font-light">
-                Je crois fermement que tout le monde mérite un endroit à appeler "chez-soi" — un refuge où l'on crée des souvenirs et où l'on bâtit son avenir. Laissez-moi mettre mon dévouement au service de votre tranquillité d'esprit.
-              </p>
-              
-             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <div class="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 transform hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(208,16,58,0.1)] flex flex-col items-start">
-                  <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                  </div>
-                  <p class="text-lg font-bold text-gray-900 mb-1">Écoute active</p>
-                  <p class="text-sm text-gray-500 font-medium leading-relaxed">Une approche centrée sur vos besoins et votre réalité.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 transform hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(208,16,58,0.1)] flex flex-col items-start">
-                  <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <p class="text-lg font-bold text-gray-900 mb-1">Disponibilité</p>
-                  <p class="text-sm text-gray-500 font-medium leading-relaxed">Un accompagnement dévoué et présent de A à Z.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 transform hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(208,16,58,0.1)] flex flex-col items-start">
-                  <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>
-                  </div>
-                  <p class="text-lg font-bold text-gray-900 mb-1">Force du réseau</p>
-                  <p class="text-sm text-gray-500 font-medium leading-relaxed">Soutenue par la visibilité de Proprio Direct.</p>
-                </div>
-              </div>
-              
-            </div>
+  <div class="container relative z-10 px-4 mx-auto max-w-7xl">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      
+      <div class="w-full lg:w-5/12 relative">
+        <div class="absolute inset-0 border border-brand/30 rounded-[2rem] transform translate-x-4 translate-y-4 lg:translate-x-6 lg:translate-y-6 -z-10 transition-transform duration-500"></div>
+        
+        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-gray-400/50 group bg-white">
+          <div class="absolute inset-0 bg-brand/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+          <img class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" src="public/catherine.png" alt="Catherine Bédard - Courtier immobilier">
+        </div>
+        
+        <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:-right-12 bg-white/95 backdrop-blur-xl border border-white p-4 lg:p-5 rounded-2xl shadow-xl z-20 w-[85%] sm:w-auto flex items-center justify-center sm:justify-start gap-4">
+          <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-brand/10 flex items-center justify-center text-brand flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 lg:w-7 lg:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <div>
+            <p class="font-semibold text-gray-900 text-base lg:text-lg whitespace-nowrap">Approche humaine</p>
+            <p class="text-xs lg:text-sm text-gray-500 font-medium">100% personnalisée</p>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div class="w-full lg:w-7/12 mt-12 lg:mt-0">
+        <div class="max-w-2xl bg-white/50 lg:bg-transparent p-6 sm:p-8 lg:p-0 rounded-3xl backdrop-blur-md lg:backdrop-blur-none border border-white/60 lg:border-none shadow-sm lg:shadow-none">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="w-12 h-px bg-brand/50"></span>
+            <p class="text-brand text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">Catherine Bédard</p>
+          </div>
+          
+          <h2 class="mb-8 text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 tracking-tight leading-[1.1] drop-shadow-sm">
+            L'humain au cœur de <br/>
+            <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand to-pink-500">votre projet immobilier.</span>
+          </h2>
+          
+          <div class="space-y-6 text-base sm:text-lg text-gray-800 leading-relaxed font-light mb-12">
+            <p>
+              Riche d'un parcours axé sur la relation d'aide et l'accompagnement humain, j'ai découvert qu'aider les familles à trouver leur maison idéale m'apporte un profond sentiment d'accomplissement. 
+            </p>
+            <p>
+              Mon approche est basée sur l'écoute active : je prends le temps de comprendre vos besoins uniques pour défendre avec passion et intégrité vos intérêts. Je crois fermement que tout le monde mérite un endroit à appeler "chez-soi". Laissez-moi mettre mon dévouement au service de votre tranquillité d'esprit.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-brand flex-shrink-0 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-gray-900 mb-1">Proactive</p>
+                <p class="text-sm text-gray-800 font-light leading-relaxed">Une approche centrée sur vos besoins et votre réalité.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-brand flex-shrink-0 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-gray-900 mb-1">Disponibilité</p>
+                <p class="text-sm text-gray-800 font-light leading-relaxed">Un accompagnement dévoué et présent de A à Z.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-brand flex-shrink-0 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-gray-900 mb-1">Force du réseau</p>
+                <p class="text-sm text-gray-800 font-light leading-relaxed">Soutenue par la visibilité de Proprio Direct.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
                 
 <section id="services" class="py-24 relative overflow-hidden bg-gray-50">
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -253,7 +278,7 @@
         <div class="container px-4 mx-auto relative z-10">
           <div class="text-center mb-16">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-brand/10 mb-4 shadow-sm">
-              <span class="w-2 h-2 rounded-full bg-brand"></span>
+              
               <span class="text-brand text-sm font-semibold tracking-wide uppercase">Services</span>
             </div>
             <h2 class="mb-6 text-4xl md:text-5xl font-bold font-heading tracking-tight leading-tight">
@@ -309,7 +334,7 @@
         </div>
       </section>
 
-<section id="opportunites-tr" class="relative py-24 overflow-hidden flex items-center justify-center min-h-[80vh]">
+<section id="opportunites" class="relative py-24 overflow-hidden flex items-center justify-center min-h-[80vh]">
         <div class="absolute inset-0 z-0">
           <img class="w-full h-full object-cover transform scale-105" src="public/infolettre.jpeg" alt="Quartier résidentiel">
           <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/95 to-brand-dark/80 mix-blend-multiply"></div>
@@ -648,9 +673,7 @@
                   <li class="mb-3.5">
                     <a class="text-gray-400 hover:text-white font-medium leading-relaxed transition-colors duration-200" href="#testimonials">Témoignages</a>
                   </li>
-                  <li class="mb-3.5">
-                    <a class="text-gray-400 hover:text-white font-medium leading-relaxed transition-colors duration-200" href="#">Blogue</a>
-                  </li>
+                 
                   <li>
                     <a class="text-gray-400 hover:text-white font-medium leading-relaxed transition-colors duration-200" href="#contact">Contact</a>
                   </li>
