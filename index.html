@@ -77,33 +77,60 @@
 </head>
 <body class="antialiased font-body relative overflow-x-hidden selection:bg-pd-red selection:text-white" x-data="{ scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)">
 
-    <nav :class="{ 'bg-pd-white/95 backdrop-blur-md shadow-sm py-4': scrolled, 'bg-transparent py-6': !scrolled }" class="fixed w-full top-0 z-50 transition-all duration-500 text-pd-black">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-            <a href="#" class="font-heading font-semibold text-2xl tracking-tight" :class="{ 'text-pd-black': scrolled, 'text-white': !scrolled }">
+ <nav x-data="{ mobileMenuOpen: false }" :class="{ 'bg-pd-white/95 backdrop-blur-md shadow-sm py-4': scrolled || mobileMenuOpen, 'bg-transparent py-6': !scrolled && !mobileMenuOpen }" class="fixed w-full top-0 z-50 transition-all duration-500 text-pd-black">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center relative z-50">
+            <a href="#" class="font-heading font-semibold text-2xl tracking-tight" :class="{ 'text-pd-black': scrolled || mobileMenuOpen, 'text-white': !scrolled && !mobileMenuOpen }">
                 C.Bédard<span class="text-pd-red">.</span>
             </a>
+            
             <div class="hidden md:flex space-x-10 text-sm tracking-wide font-medium" :class="{ 'text-pd-black': scrolled, 'text-white': !scrolled }">
                 <a href="#a-propos" class="hover:text-pd-red transition-colors duration-300">À propos</a>
                 <a href="#services" class="hover:text-pd-red transition-colors duration-300">Services</a>
-                <a href="#alerte" class="hover:text-pd-red transition-colors duration-300">Accès Privilégié</a>
+                <a href="#alerte" class="hover:text-pd-red transition-colors duration-300">Alerte Personnalisée</a>
                 <a href="#faq" class="hover:text-pd-red transition-colors duration-300">FAQ</a>
             </div>
+            
             <a href="#contact" class="hidden md:inline-block border border-pd-red px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-pd-red hover:text-white" :class="{ 'text-pd-black border-pd-black hover:border-pd-red': scrolled, 'text-white border-white hover:border-pd-red': !scrolled }">
                 Contactez-moi
             </a>
+
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none" :class="{ 'text-pd-black': scrolled || mobileMenuOpen, 'text-white': !scrolled && !mobileMenuOpen }">
+                <svg x-show="!mobileMenuOpen" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg x-show="mobileMenuOpen" x-cloak class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             x-cloak 
+             class="md:hidden absolute top-full left-0 w-full bg-[#f9f9f9] border-t border-gray-200 shadow-lg">
+            <div class="px-6 py-6 flex flex-col space-y-6 text-center text-pd-black font-medium text-lg">
+                <a href="#a-propos" @click="mobileMenuOpen = false" class="hover:text-pd-red transition-colors duration-300">À propos</a>
+                <a href="#services" @click="mobileMenuOpen = false" class="hover:text-pd-red transition-colors duration-300">Services</a>
+                <a href="#alerte" @click="mobileMenuOpen = false" class="hover:text-pd-red transition-colors duration-300">Alerte Personnalisée</a>
+                <a href="#faq" @click="mobileMenuOpen = false" class="hover:text-pd-red transition-colors duration-300">FAQ</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="inline-block border border-pd-red px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:bg-pd-red hover:text-white mx-auto mt-4 text-pd-red">
+                    Contactez-moi
+                </a>
+            </div>
         </div>
     </nav>
 
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover scale-105" style="filter: brightness(0.8);">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-a-lot-of-natural-light-41618-large.mp4" type="video/mp4">
+            <source src="./public/bannervid.mov" type="video/mp4">
         </video>
         <div class="absolute inset-0 hero-overlay"></div>
 
         <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto mt-20">
-            <span class="block uppercase tracking-[0.3em] text-xs font-semibold mb-6 fade-up">Proprio Direct</span>
+            <span class="block uppercase tracking-[0.3em] text-xs font-semibold mb-6 fade-up">Catherine Bédard</span>
             <h1 class="font-heading text-5xl md:text-7xl font-medium leading-tight mb-8 fade-up delay-100">
-                L'excellence immobilière,<br /> <span class="italic text-pd-white/80">sans compromis.</span>
+                L'immobilier avec Coeur<br /> <span class="italic text-pd-white/80">et passion.</span>
             </h1>
             <p class="text-lg md:text-xl font-light text-white/90 mb-10 max-w-2xl mx-auto fade-up delay-200">
                 Une approche humaine, stratégique et raffinée pour vendre ou acheter votre propriété en toute tranquillité d'esprit.
@@ -123,198 +150,398 @@
         </div>
     </section>
 
-    <section id="a-propos" class="py-32 relative">
-        <div class="bg-glow top-0 left-[-200px]"></div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                <div class="lg:col-span-5 relative fade-up">
-                    <div class="aspect-[4/5] overflow-hidden rounded-sm relative z-10">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Catherine Bédard" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000 lux">
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 w-full h-full border border-pd-red/20 z-0 hidden md:block"></div>
+<section id="a-propos" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-stone-50 -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-0 items-center">
+            
+            <div class="lg:col-span-5 lg:col-start-1 relative z-10 fade-up">
+                <div class="aspect-[4/5] overflow-hidden relative shadow-xl">
+                    <div class="absolute inset-0 bg-pd-black/10 z-10 transition-colors duration-700 hover:bg-transparent pointer-events-none"></div>
+                    <img src="./public/catherine.png" alt="Catherine Bédard" class="w-full h-full object-cover transform hover:scale-[1.03] transition-transform duration-1000 ease-out lux">
                 </div>
-                
-                <div class="lg:col-span-7 lg:pl-10 fade-up delay-100">
-                    <h2 class="font-heading text-4xl md:text-5xl text-pd-black mb-8 leading-tight">
-                        L'art de maîtriser <br/><span class="text-pd-red italic">votre transaction.</span>
+            </div>
+            
+            <div class="lg:col-span-7 lg:col-start-6 relative z-20 fade-up delay-100 mt-[-2rem] lg:mt-0">
+                <div class="bg-white lg:p-10 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-stone-100">
+                    <span class="block text-[10px] lg:text-xs font-semibold tracking-widest text-pd-black/50 uppercase mb-3">L'Expertise Proprio Direct</span>
+                    
+                    <h2 class="font-heading text-3xl lg:text-4xl text-pd-black mb-5 leading-tight">
+                        L'art de maîtriser <br/>
+                        <span class="text-pd-red font-light italic">votre transaction.</span>
                     </h2>
-                    <div class="text-pd-black/70 space-y-6 font-light leading-relaxed text-lg">
-                        <p class="first-letter:text-5xl first-letter:font-heading first-letter:text-pd-red first-letter:mr-3 first-letter:float-left">
+                    
+                    <div class="text-pd-black/80 space-y-4 font-light leading-relaxed text-base lg:text-lg">
+                        <p>
                             Je crois fermement que chaque transaction immobilière mérite une attention méticuleuse, quel que soit le type de propriété. Mon rôle est de transformer un processus complexe en une expérience fluide et rassurante.
                         </p>
                         <p>
-                            Avec Proprio Direct, vous bénéficiez du meilleur des deux mondes : la puissance d'un réseau reconnu et la possibilité de trouver vous-même l'acheteur tout en profitant d'un taux de commission réduit. J'orchestre chaque étape avec rigueur, de la mise en marché jusqu'à la signature chez le notaire.
-                        </p>
-                        <p class="font-medium text-pd-black border-l-2 border-pd-red pl-6 mt-8 py-2">
-                            "Mon engagement : protéger vos intérêts et maximiser la valeur de votre patrimoine."
+                            Avec Proprio Direct, vous bénéficiez du meilleur des deux mondes : la puissance d'un réseau reconnu et la possibilité de trouver vous-même l'acheteur tout en profitant d'un taux de commission réduit. J'orchestre chaque étape avec rigueur.
                         </p>
                     </div>
                     
-                    <div class="mt-10 pt-10 border-t border-gray-200">
-                        <img src="https://propriodirect.com/assets/img/logo-proprio-direct.svg" alt="Proprio Direct" class="h-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <blockquote class="mt-6 pt-6 border-t border-stone-100">
+                        <p class="text-xl lg:text-2xl font-heading text-pd-black font-light italic leading-snug">
+                            "Mon engagement : protéger vos intérêts et maximiser la valeur de votre patrimoine."
+                        </p>
+                        <footer class="mt-3 text-[10px] font-semibold tracking-widest text-pd-red uppercase">— Catherine Bédard</footer>
+                    </blockquote>
+                    
+                    <div class="mt-6 pt-6">
+                        <img src="./public/logo_fr_1 (3).svg" alt="Proprio Direct" class="h-10  transition-all duration-500">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-32 bg-white relative">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="text-center max-w-2xl mx-auto mb-20 fade-up">
-                <span class="text-pd-red text-sm font-semibold tracking-widest uppercase mb-4 block">Mon Expertise</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-pd-black">Un accompagnement sur mesure</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="group p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-white hover:shadow-2xl hover:shadow-pd-red/5 transition-all duration-500 fade-up relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-pd-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    <div class="w-12 h-12 rounded-full bg-pd-red/10 flex items-center justify-center text-pd-red mb-8">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-medium mb-4">Vente de propriété</h3>
-                    <p class="text-pd-black/60 font-light leading-relaxed">Mise en marché percutante, visibilité optimale et négociation stratégique pour vendre aux meilleures conditions du marché.</p>
-                </div>
-
-                <div class="group p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-white hover:shadow-2xl hover:shadow-pd-red/5 transition-all duration-500 fade-up delay-100 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-pd-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    <div class="w-12 h-12 rounded-full bg-pd-red/10 flex items-center justify-center text-pd-red mb-8">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-medium mb-4">Achat stratégique</h3>
-                    <p class="text-pd-black/60 font-light leading-relaxed">Recherche ciblée, analyse de la valeur marchande et accompagnement complet pour sécuriser l'achat de votre prochaine demeure.</p>
-                </div>
-
-                <div class="group p-10 border border-gray-100 bg-[#f9f9f9] hover:bg-white hover:shadow-2xl hover:shadow-pd-red/5 transition-all duration-500 fade-up delay-200 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-pd-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    <div class="w-12 h-12 rounded-full bg-pd-red/10 flex items-center justify-center text-pd-red mb-8">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-medium mb-4">Programme Proprio Direct</h3>
-                    <p class="text-pd-black/60 font-light leading-relaxed">Profitez du programme Visibilité Libre. Trouvez l'acheteur vous-même et payez une commission réduite, tout en gardant mes services.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="alerte" class="py-32 bg-pd-black text-white relative overflow-hidden">
-        <div class="absolute top-[-50%] right-[-10%] w-[800px] h-[800px] bg-pd-red/10 rounded-full blur-3xl pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 text-center">
-            <h2 class="font-heading text-4xl md:text-5xl mb-6 fade-up">Accès Privilégié au Marché</h2>
-            <p class="text-white/70 max-w-2xl mx-auto font-light text-lg mb-12 fade-up delay-100">
-                Ne manquez aucune opportunité. Inscrivez-vous pour recevoir une sélection personnalisée de propriétés correspondant exactement à vos critères, avant même qu'elles ne soient vues par tous.
-            </p>
             
-            <form action="https://formspree.io/f/xaqpnjee" method="POST" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-4 fade-up delay-200">
-                <input type="hidden" name="_subject" value="Nouvelle inscription - Alertes immobilières">
-                <input type="email" name="email" placeholder="Votre adresse courriel" required class="flex-1 bg-white/10 border border-white/20 text-white px-6 py-4 focus:outline-none focus:border-pd-red rounded-sm placeholder-white/50 backdrop-blur-sm transition-colors">
-                <button type="submit" class="bg-pd-red text-white px-8 py-4 font-medium hover:bg-red-700 transition-colors duration-300 rounded-sm shadow-lg shadow-pd-red/20 whitespace-nowrap">
-                    Recevoir mes alertes
-                </button>
-            </form>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="faq" class="py-32 relative bg-[#f9f9f9]">
-        <div class="max-w-4xl mx-auto px-6 lg:px-12">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="font-heading text-4xl md:text-5xl text-pd-black mb-4">Vos Questions, <span class="text-pd-red italic">Mes Réponses</span></h2>
-                <p class="text-pd-black/60 font-light">La clarté est la clé d'une transaction réussie.</p>
+<section id="services" class="py-24 lg:py-32 bg-[#232323] relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-white/[0.02] blur-3xl rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        
+        <div class="text-center max-w-2xl mx-auto mb-20 fade-up">
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <div class="w-8 h-[1px] bg-pd-red/60"></div>
+                <span class="text-white/60 text-xs font-semibold tracking-[0.25em] uppercase">Mon Expertise</span>
+                <div class="w-8 h-[1px] bg-pd-red/60"></div>
+            </div>
+            <h2 class="font-heading text-4xl md:text-5xl text-white font-light leading-tight">
+                Un accompagnement <br class="hidden md:block"/>
+                <span class="italic text-white/70">sur mesure.</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
+            
+            <div class="group p-8 lg:p-12 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-500 fade-up relative">
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-pd-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out origin-left"></div>
+                
+                <div class="text-white/40 group-hover:text-pd-red transition-colors duration-500 mb-8">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                </div>
+                
+                <h3 class="font-heading text-2xl text-white font-light mb-4">Vente de propriété</h3>
+                <p class="text-white/50 font-light leading-relaxed text-sm lg:text-base">
+                    Mise en marché percutante, visibilité optimale et négociation stratégique pour vendre aux meilleures conditions du marché.
+                </p>
             </div>
 
-            <div class="space-y-4 fade-up delay-100">
-                <div x-data="{ expanded: false }" class="border-b border-gray-200">
-                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-6 text-left focus:outline-none group">
-                        <span class="font-heading text-lg md:text-xl font-medium text-pd-black group-hover:text-pd-red transition-colors">Pourquoi choisir un courtier Proprio Direct ?</span>
-                        <svg class="w-6 h-6 text-pd-black transform transition-transform duration-300" :class="expanded ? 'rotate-180 text-pd-red' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <div class="group p-8 lg:p-12 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-500 fade-up delay-100 relative">
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-pd-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out origin-left"></div>
+                
+                <div class="text-white/40 group-hover:text-pd-red transition-colors duration-500 mb-8">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                
+                <h3 class="font-heading text-2xl text-white font-light mb-4">Achat stratégique</h3>
+                <p class="text-white/50 font-light leading-relaxed text-sm lg:text-base">
+                    Recherche ciblée, analyse de la valeur marchande et accompagnement complet pour sécuriser l'achat de votre prochaine demeure.
+                </p>
+            </div>
+
+            <div class="group p-8 lg:p-12 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-500 fade-up delay-200 relative">
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-pd-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out origin-left"></div>
+                
+                <div class="text-white/40 group-hover:text-pd-red transition-colors duration-500 mb-8">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                
+                <h3 class="font-heading text-2xl text-white font-light mb-4">Programme Proprio Direct</h3>
+                <p class="text-white/50 font-light leading-relaxed text-sm lg:text-base">
+                    Profitez du programme Visibilité Libre. Trouvez l'acheteur vous-même et payez une commission réduite, tout en gardant mes services.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="alerte" class="relative w-full py-24 lg:py-32 flex items-center min-h-[80vh]">
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Intérieur de maison" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/95 via-[#1a1a1a]/80 to-[#1a1a1a]/40"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <div class="lg:col-span-5 fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-[1px] bg-pd-red"></div>
+                    <span class="text-white/70 text-[10px] font-semibold tracking-[0.25em] uppercase">Alerte Personnalisée</span>
+                </div>
+                
+                <h2 class="font-heading text-4xl lg:text-5xl text-white leading-tight mb-6">
+                    Votre future propriété, <br/>
+                    <span class="italic font-light text-white/80">trouvée sur mesure.</span>
+                </h2>
+                
+                <p class="text-white/60 font-light leading-relaxed text-lg mb-8">
+                    Le marché évolue rapidement et la réactivité est la clé. Partagez-moi vos critères et recevez directement les nouvelles inscriptions qui correspondent exactement à vos besoins, dès leur mise en marché.
+                </p>
+                
+                <div class="hidden lg:block border-l border-white/20 pl-6 mt-12">
+                    <p class="text-white/40 text-sm font-light italic">
+                        "Une recherche ciblée, un gain de temps inestimable."
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 fade-up delay-100">
+                <div class="bg-[#232323]/80 backdrop-blur-xl border border-white/10 p-8 lg:p-12 shadow-2xl">
+                    
+                    <form action="https://formspree.io/f/xaqpnjee" method="POST" class="space-y-6">
+                        <input type="hidden" name="_subject" value="Nouvelle alerte immobilière">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-white/50 text-xs tracking-widest uppercase mb-2">Prénom & Nom</label>
+                                <input type="text" name="nom" required class="w-full bg-white/[0.03] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-white/50 focus:bg-white/[0.05] transition-all duration-300 font-light text-sm rounded-none placeholder-white/20" placeholder="Votre nom complet">
+                            </div>
+                            <div>
+                                <label class="block text-white/50 text-xs tracking-widest uppercase mb-2">Téléphone</label>
+                                <input type="tel" name="telephone" class="w-full bg-white/[0.03] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-white/50 focus:bg-white/[0.05] transition-all duration-300 font-light text-sm rounded-none placeholder-white/20" placeholder="(123) 456-7890">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-white/50 text-xs tracking-widest uppercase mb-2">Courriel</label>
+                            <input type="email" name="email" required class="w-full bg-white/[0.03] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-white/50 focus:bg-white/[0.05] transition-all duration-300 font-light text-sm rounded-none placeholder-white/20" placeholder="votre.adresse@courriel.com">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-white/50 text-xs tracking-widest uppercase mb-2">Type de propriété</label>
+                                <div class="relative">
+                                    <select name="type" class="w-full bg-white/[0.03] border border-white/10 text-white px-4 py-3 appearance-none focus:outline-none focus:border-white/50 focus:bg-white/[0.05] transition-all duration-300 font-light text-sm rounded-none cursor-pointer">
+                                        <option value="" disabled selected class="bg-[#232323] text-white/50">Sélectionnez...</option>
+                                        <option value="Maison unifamiliale" class="bg-[#232323] text-white">Maison unifamiliale</option>
+                                        <option value="Condo / Appartement" class="bg-[#232323] text-white">Condo / Appartement</option>
+                                        <option value="Maison de ville" class="bg-[#232323] text-white">Maison de ville</option>
+                                        <option value="Plex / Investissement" class="bg-[#232323] text-white">Plex / Investissement</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-white/40">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-white/50 text-xs tracking-widest uppercase mb-2">Budget estimé</label>
+                                <input type="text" name="budget" class="w-full bg-white/[0.03] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-white/50 focus:bg-white/[0.05] transition-all duration-300 font-light text-sm rounded-none placeholder-white/20" placeholder="Ex: 500k - 750k">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-white/50 text-xs tracking-widest uppercase mb-2">Région ou quartiers ciblés</label>
+                            <input type="text" name="region" class="w-full bg-white/[0.03] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-white/50 focus:bg-white/[0.05] transition-all duration-300 font-light text-sm rounded-none placeholder-white/20" placeholder="Où souhaitez-vous habiter ?">
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" class="group w-full flex items-center justify-center gap-4 bg-white text-pd-black hover:bg-pd-red hover:text-white px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-500">
+                                <span>Activer mon alerte</span>
+                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="py-24 lg:py-32 bg-stone-50 relative border-t border-stone-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            
+            <div class="lg:col-span-4 lg:sticky lg:top-32 self-start fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-[1px] bg-pd-red"></div>
+                    <span class="text-pd-black/50 text-[10px] font-semibold tracking-[0.25em] uppercase">Informations</span>
+                </div>
+                
+                <h2 class="font-heading text-4xl lg:text-5xl text-pd-black leading-tight mb-6">
+                    Vos questions, <br/>
+                    <span class="italic font-light text-pd-red">mes réponses.</span>
+                </h2>
+                
+                <p class="text-pd-black/60 font-light leading-relaxed text-lg">
+                    La clarté est la clé d'une transaction réussie. Explorez les interrogations les plus fréquentes pour débuter votre démarche en toute confiance.
+                </p>
+                
+                <a href="#contact" class="inline-flex items-center gap-2 mt-8 text-sm font-semibold tracking-widest uppercase text-pd-black hover:text-pd-red transition-colors duration-300 group">
+                    <span>Posez une autre question</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+            <div class="lg:col-span-8 space-y-2 fade-up delay-100">
+                
+                <div x-data="{ expanded: false }" class="border-b border-stone-200/80">
+                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-8 text-left focus:outline-none group">
+                        <span class="font-heading text-xl lg:text-2xl font-light text-pd-black group-hover:text-pd-red transition-colors pr-8">Pourquoi choisir un courtier Proprio Direct ?</span>
+                        <div class="relative w-6 h-6 flex-shrink-0 text-pd-black group-hover:text-pd-red transition-colors">
+                            <span class="absolute top-1/2 left-0 w-full h-[1px] bg-current transform -translate-y-1/2 transition-transform duration-500" :class="expanded ? 'rotate-180' : ''"></span>
+                            <span class="absolute top-0 left-1/2 w-[1px] h-full bg-current transform -translate-x-1/2 transition-all duration-500" :class="expanded ? 'rotate-90 opacity-0' : 'opacity-100'"></span>
+                        </div>
                     </button>
-                    <div x-show="expanded" x-collapse.duration.300ms class="pb-6 text-pd-black/70 font-light leading-relaxed">
+                    <div x-show="expanded" x-collapse.duration.500ms class="pb-8 text-pd-black/60 font-light leading-relaxed lg:text-lg lg:pr-12">
                         Avec Proprio Direct, vous profitez d'une visibilité maximale sur tous les réseaux (Centris, MLS, etc.) tout en gardant le privilège de trouver l'acheteur vous-même. Si c'est le cas, vous bénéficiez d'un taux de commission réduit, sans jamais perdre mon accompagnement professionnel pour finaliser la transaction.
                     </div>
                 </div>
 
-                <div x-data="{ expanded: false }" class="border-b border-gray-200">
-                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-6 text-left focus:outline-none group">
-                        <span class="font-heading text-lg md:text-xl font-medium text-pd-black group-hover:text-pd-red transition-colors">Quel est le meilleur moment pour vendre ?</span>
-                        <svg class="w-6 h-6 text-pd-black transform transition-transform duration-300" :class="expanded ? 'rotate-180 text-pd-red' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div x-data="{ expanded: false }" class="border-b border-stone-200/80">
+                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-8 text-left focus:outline-none group">
+                        <span class="font-heading text-xl lg:text-2xl font-light text-pd-black group-hover:text-pd-red transition-colors pr-8">Quel est le meilleur moment pour vendre ?</span>
+                        <div class="relative w-6 h-6 flex-shrink-0 text-pd-black group-hover:text-pd-red transition-colors">
+                            <span class="absolute top-1/2 left-0 w-full h-[1px] bg-current transform -translate-y-1/2 transition-transform duration-500" :class="expanded ? 'rotate-180' : ''"></span>
+                            <span class="absolute top-0 left-1/2 w-[1px] h-full bg-current transform -translate-x-1/2 transition-all duration-500" :class="expanded ? 'rotate-90 opacity-0' : 'opacity-100'"></span>
+                        </div>
                     </button>
-                    <div x-show="expanded" x-collapse.duration.300ms class="pb-6 text-pd-black/70 font-light leading-relaxed">
+                    <div x-show="expanded" x-collapse.duration.500ms class="pb-8 text-pd-black/60 font-light leading-relaxed lg:text-lg lg:pr-12">
                         Bien que le printemps soit traditionnellement très actif, le meilleur moment dépend surtout de vos besoins personnels et de l'inventaire actuel dans votre secteur. Une évaluation gratuite de votre propriété nous permettra d'établir la meilleure stratégie selon le marché actuel.
                     </div>
                 </div>
 
-                <div x-data="{ expanded: false }" class="border-b border-gray-200">
-                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-6 text-left focus:outline-none group">
-                        <span class="font-heading text-lg md:text-xl font-medium text-pd-black group-hover:text-pd-red transition-colors">Offrez-vous une estimation gratuite ?</span>
-                        <svg class="w-6 h-6 text-pd-black transform transition-transform duration-300" :class="expanded ? 'rotate-180 text-pd-red' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div x-data="{ expanded: false }" class="border-b border-stone-200/80">
+                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-8 text-left focus:outline-none group">
+                        <span class="font-heading text-xl lg:text-2xl font-light text-pd-black group-hover:text-pd-red transition-colors pr-8">Offrez-vous une estimation gratuite ?</span>
+                        <div class="relative w-6 h-6 flex-shrink-0 text-pd-black group-hover:text-pd-red transition-colors">
+                            <span class="absolute top-1/2 left-0 w-full h-[1px] bg-current transform -translate-y-1/2 transition-transform duration-500" :class="expanded ? 'rotate-180' : ''"></span>
+                            <span class="absolute top-0 left-1/2 w-[1px] h-full bg-current transform -translate-x-1/2 transition-all duration-500" :class="expanded ? 'rotate-90 opacity-0' : 'opacity-100'"></span>
+                        </div>
                     </button>
-                    <div x-show="expanded" x-collapse.duration.300ms class="pb-6 text-pd-black/70 font-light leading-relaxed">
-                        Absolument. Je me déplace chez vous pour faire une analyse comparative du marché (ACM) complète et rigoureuse. C'est totalement gratuit et sans engagement de votre part.
+                    <div x-show="expanded" x-collapse.duration.500ms class="pb-8 text-pd-black/60 font-light leading-relaxed lg:text-lg lg:pr-12">
+                        Absolument. Je me déplace chez vous pour faire une analyse comparative du marché (ACM) complète et rigoureuse. C'est totalement gratuit et sans engagement de votre part, afin de vous donner l'heure juste sur la valeur de votre patrimoine.
                     </div>
                 </div>
+
+                <div x-data="{ expanded: false }" class="border-b border-stone-200/80">
+                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-8 text-left focus:outline-none group">
+                        <span class="font-heading text-xl lg:text-2xl font-light text-pd-black group-hover:text-pd-red transition-colors pr-8">Comment déterminez-vous le prix de vente ?</span>
+                        <div class="relative w-6 h-6 flex-shrink-0 text-pd-black group-hover:text-pd-red transition-colors">
+                            <span class="absolute top-1/2 left-0 w-full h-[1px] bg-current transform -translate-y-1/2 transition-transform duration-500" :class="expanded ? 'rotate-180' : ''"></span>
+                            <span class="absolute top-0 left-1/2 w-[1px] h-full bg-current transform -translate-x-1/2 transition-all duration-500" :class="expanded ? 'rotate-90 opacity-0' : 'opacity-100'"></span>
+                        </div>
+                    </button>
+                    <div x-show="expanded" x-collapse.duration.500ms class="pb-8 text-pd-black/60 font-light leading-relaxed lg:text-lg lg:pr-12">
+                        J'effectue une analyse comparative de marché (ACM) approfondie. Je prends en compte les propriétés similaires vendues récemment dans votre secteur, les tendances économiques actuelles, ainsi que les caractéristiques uniques et les améliorations de votre demeure.
+                    </div>
+                </div>
+
+                <div x-data="{ expanded: false }" class="border-b border-stone-200/80">
+                    <button @click="expanded = !expanded" class="w-full flex justify-between items-center py-8 text-left focus:outline-none group">
+                        <span class="font-heading text-xl lg:text-2xl font-light text-pd-black group-hover:text-pd-red transition-colors pr-8">Suis-je obligé de rénover avant de vendre ?</span>
+                        <div class="relative w-6 h-6 flex-shrink-0 text-pd-black group-hover:text-pd-red transition-colors">
+                            <span class="absolute top-1/2 left-0 w-full h-[1px] bg-current transform -translate-y-1/2 transition-transform duration-500" :class="expanded ? 'rotate-180' : ''"></span>
+                            <span class="absolute top-0 left-1/2 w-[1px] h-full bg-current transform -translate-x-1/2 transition-all duration-500" :class="expanded ? 'rotate-90 opacity-0' : 'opacity-100'"></span>
+                        </div>
+                    </button>
+                    <div x-show="expanded" x-collapse.duration.500ms class="pb-8 text-pd-black/60 font-light leading-relaxed lg:text-lg lg:pr-12">
+                        Pas nécessairement. Plutôt que de vous lancer dans des travaux majeurs, je vous conseillerai sur les petites améliorations stratégiques et le "home staging" (mise en valeur). Souvent, un simple rafraîchissement visuel suffit à maximiser votre profit net.
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div class="fade-up">
-                <span class="text-pd-red text-sm font-semibold tracking-widest uppercase mb-4 block">Contact</span>
-                <h2 class="font-heading text-4xl md:text-5xl text-pd-black mb-8 leading-tight">Discutons de <br/>votre projet.</h2>
-                <p class="text-pd-black/70 font-light text-lg mb-10">Que ce soit pour une estimation, un achat ou simplement pour explorer vos options, je suis à votre écoute.</p>
+<section id="contact" class="py-24 lg:py-32 bg-[#232323] relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-full max-w-3xl h-64 bg-white/[0.02] blur-3xl rounded-full pointer-events-none -translate-y-1/2"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+            
+            <div class="lg:col-span-5 fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-[1px] bg-pd-red"></div>
+                    <span class="text-white/50 text-[10px] font-semibold tracking-[0.25em] uppercase">Contact</span>
+                </div>
                 
-                <div class="space-y-6 text-pd-black">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center text-pd-red">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                <h2 class="font-heading text-4xl lg:text-5xl text-white mb-6 leading-tight">
+                    Discutons de <br/>
+                    <span class="italic font-light text-white/70">votre projet.</span>
+                </h2>
+                
+                <p class="text-white/60 font-light leading-relaxed text-lg mb-12">
+                    Que ce soit pour une estimation précise de votre propriété, un achat stratégique ou simplement pour explorer vos options sur le marché actuel, je suis à votre entière disposition.
+                </p>
+                
+                <div class="space-y-8">
+                    <div class="group flex items-start space-x-6">
+                        <div class="mt-1 flex-shrink-0 text-white/30 group-hover:text-pd-red transition-colors duration-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         </div>
                         <div>
-                            <p class="text-sm text-pd-black/50">Téléphone</p>
-                            <p class="font-medium">514-000-0000</p> </div>
+                            <p class="text-[10px] tracking-[0.2em] font-semibold uppercase text-white/40 mb-1">Téléphone</p>
+                            <a href="tel:8197908602" class="text-lg text-white font-light hover:text-pd-red transition-colors duration-300">819-790-8602</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center text-pd-red">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    
+                    <div class="group flex items-start space-x-6">
+                        <div class="mt-1 flex-shrink-0 text-white/30 group-hover:text-pd-red transition-colors duration-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
                         <div>
-                            <p class="text-sm text-pd-black/50">Courriel</p>
-                            <p class="font-medium">cbedard@propriodirect.com</p> </div>
+                            <p class="text-[10px] tracking-[0.2em] font-semibold uppercase text-white/40 mb-1">Courriel</p>
+                            <a href="mailto:cbedard@propriodirect.com" class="text-lg text-white font-light hover:text-pd-red transition-colors duration-300 break-all">cbedard@propriodirect.com</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-[#f9f9f9] p-8 md:p-12 rounded-sm border border-gray-100 fade-up delay-100">
-                <form action="https://formspree.io/f/xaqpnjee" method="POST" class="space-y-6">
+            <div class="lg:col-span-7 fade-up delay-100 mt-8 lg:mt-0">
+                <form action="https://formspree.io/f/xaqpnjee" method="POST" class="space-y-10 lg:pl-8">
                     <input type="hidden" name="_subject" value="Nouveau message depuis le site web">
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm text-pd-black/70 mb-2">Prénom et nom</label>
-                            <input type="text" name="name" required class="w-full bg-white border-b border-gray-300 px-0 py-3 text-pd-black focus:outline-none focus:border-pd-red transition-colors bg-transparent">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="relative group">
+                            <input type="text" name="name" id="name" required class="peer w-full bg-transparent border-b border-white/20 px-0 py-2 text-white placeholder-transparent focus:outline-none focus:border-white/60 transition-colors duration-300" placeholder="Prénom et nom">
+                            <label for="name" class="absolute left-0 -top-5 text-[10px] tracking-widest uppercase font-semibold text-white/50 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/40 peer-placeholder-shown:font-light peer-placeholder-shown:top-2 peer-placeholder-shown:tracking-normal peer-focus:-top-5 peer-focus:text-[10px] peer-focus:tracking-widest peer-focus:font-semibold peer-focus:text-white">
+                                Prénom et nom
+                            </label>
                         </div>
-                        <div>
-                            <label class="block text-sm text-pd-black/70 mb-2">Téléphone</label>
-                            <input type="tel" name="phone" class="w-full bg-white border-b border-gray-300 px-0 py-3 text-pd-black focus:outline-none focus:border-pd-red transition-colors bg-transparent">
+                        
+                        <div class="relative group">
+                            <input type="tel" name="phone" id="phone" class="peer w-full bg-transparent border-b border-white/20 px-0 py-2 text-white placeholder-transparent focus:outline-none focus:border-white/60 transition-colors duration-300" placeholder="Téléphone">
+                            <label for="phone" class="absolute left-0 -top-5 text-[10px] tracking-widest uppercase font-semibold text-white/50 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/40 peer-placeholder-shown:font-light peer-placeholder-shown:top-2 peer-placeholder-shown:tracking-normal peer-focus:-top-5 peer-focus:text-[10px] peer-focus:tracking-widest peer-focus:font-semibold peer-focus:text-white">
+                                Téléphone
+                            </label>
                         </div>
                     </div>
                     
-                    <div>
-                        <label class="block text-sm text-pd-black/70 mb-2">Courriel</label>
-                        <input type="email" name="email" required class="w-full bg-white border-b border-gray-300 px-0 py-3 text-pd-black focus:outline-none focus:border-pd-red transition-colors bg-transparent">
+                    <div class="relative group">
+                        <input type="email" name="email" id="email" required class="peer w-full bg-transparent border-b border-white/20 px-0 py-2 text-white placeholder-transparent focus:outline-none focus:border-white/60 transition-colors duration-300" placeholder="Courriel">
+                        <label for="email" class="absolute left-0 -top-5 text-[10px] tracking-widest uppercase font-semibold text-white/50 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/40 peer-placeholder-shown:font-light peer-placeholder-shown:top-2 peer-placeholder-shown:tracking-normal peer-focus:-top-5 peer-focus:text-[10px] peer-focus:tracking-widest peer-focus:font-semibold peer-focus:text-white">
+                            Courriel
+                        </label>
                     </div>
                     
-                    <div>
-                        <label class="block text-sm text-pd-black/70 mb-2">Message</label>
-                        <textarea name="message" rows="4" required class="w-full bg-white border-b border-gray-300 px-0 py-3 text-pd-black focus:outline-none focus:border-pd-red transition-colors bg-transparent resize-none"></textarea>
+                    <div class="relative group pt-4">
+                        <textarea name="message" id="message" rows="4" required class="peer w-full bg-transparent border-b border-white/20 px-0 py-2 text-white placeholder-transparent focus:outline-none focus:border-white/60 transition-colors duration-300 resize-none" placeholder="Message"></textarea>
+                        <label for="message" class="absolute left-0 -top-1 text-[10px] tracking-widest uppercase font-semibold text-white/50 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/40 peer-placeholder-shown:font-light peer-placeholder-shown:top-6 peer-placeholder-shown:tracking-normal peer-focus:-top-1 peer-focus:text-[10px] peer-focus:tracking-widest peer-focus:font-semibold peer-focus:text-white">
+                            Votre message
+                        </label>
                     </div>
                     
-                    <button type="submit" class="w-full bg-pd-black text-white py-4 font-medium hover:bg-pd-red transition-colors duration-300 rounded-sm shadow-md">
-                        Envoyer le message
-                    </button>
+                    <div class="pt-4">
+                        <button type="submit" class="group flex items-center justify-center gap-4 border border-white/30 text-white hover:bg-white hover:text-pd-black hover:border-white px-10 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-500 w-full md:w-auto">
+                            <span>Envoyer le message</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </button>
+                    </div>
                 </form>
             </div>
+            
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="bg-white border-t border-gray-100 py-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center text-sm text-pd-black/50">
